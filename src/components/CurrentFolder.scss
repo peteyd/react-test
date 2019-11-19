@@ -1,0 +1,28 @@
+.current-folder {
+  border: 1px solid lightgray;
+  margin: 10px;
+  padding-bottom: 20px;
+};
+
+.back-button-wrapper {
+  margin: 15px;
+  height: 30px;
+};
+
+.header {
+  height: 30px;
+  background-color: #eeeeee;
+  padding: 5px;
+};
+
+.folder-name {
+  margin-left: 15px;
+  font-size: 14pt;
+};
+
+.folder-contents {
+  margin: 15px;
+  border-top: 1px solid lightgray;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+};

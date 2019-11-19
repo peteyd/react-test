@@ -4,29 +4,16 @@ const tags = (state = {}, action) => {
       const tags = {
         root: {
           _id: 'root',
-          name: 'root',
+          name: 'Root Level',
           isFolder: true,
         },
       };
 
       return action.tags.reduce((accumulator, currentValue) => {
-        accumulator[currentValue._id] = {
-          ...accumulator[currentValue._id],
-          ...currentValue,
-        };
-
-        const parentID = currentValue.parent || 'root';
-        let parent = accumulator[parentID];
-
-        if (!parent) {
-          parent = accumulator[currentValue.parent] = {};
-        }
-
-        parent.children = parent.children || [];
-        parent.children.push(currentValue._id);
-
+        accumulator[currentValue._id] = currentValue;
         return accumulator;
       }, tags);
+
     default:
       return state;
   }

@@ -6,5 +6,5 @@ export const selectedTagsSelector = createSelector(
 );
 
 export const isSelected = (state, tagID) => {
-  return selectedTagsSelector(state)[tagID];
+  return selectedTagsSelector(state)[tagID] || false;
 };

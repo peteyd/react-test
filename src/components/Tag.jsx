@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { selectTag } from 'selectors/tagsSelector';
 import { isSelected } from 'selectors/selectedTagsSelector';
 import * as selectedTags from 'actions/selectedTags';
+import 'components/Tag.scss';
 
 const Tag = (props) => {
   const onChange = () => {
-    props.dispatch(selectedTags.toggle(props.tag._id));
+    props.toggleTag(props.tag._id);
   };
 
-  console.log(props);
   return (
     <div className="tag-checkbox">
       <input type="checkbox" name={props.tag._id} onChange={onChange} checked={props.isSelected}/>
@@ -25,4 +25,12 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps)(Tag);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleTag: (tagID) => {
+      dispatch(selectedTags.toggle(tagID));
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Tag);

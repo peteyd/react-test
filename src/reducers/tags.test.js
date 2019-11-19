@@ -15,7 +15,7 @@ it('should return the given initial state when action not recognized', () => {
 
 const root = {
   _id: 'root',
-  name: 'root',
+  name: 'Root Level',
   isFolder: true,
 };
 
@@ -27,56 +27,23 @@ it('should add a root folder', () => {
   });
 });
 
-it('should index the list of tag objects by id and add them to the roots children if no parent', () => {
+it('should index the list of tag objects by id', () => {
   const folderA = {
     '_id': '5ace4c99bfbcb25277a2e837',
     'name': 'Folder A',
+    'isFolder': true,
   };
-  const folderB = {
+  const tagA = {
     '_id': '5ace4c9ebfbcb25277a2e838',
-    'name': 'Folder B',
+    'name': 'Tag A',
   };
-  const tagList = [ folderA, folderB ];
+  const tagList = [ folderA, tagA ];
 
   const state = reducer(undefined, tags.init(tagList));
 
   expect(state).toEqual({
-    root: { ...root, children: [ folderA._id, folderB._id ] },
+    root,
     [folderA._id]: folderA,
-    [folderB._id]: folderB,
-  });
-});
-
-it('should add the tags ID to their parents list of children', () => {
-  const folderA = {
-    '_id': '5ace4c99bfbcb25277a2e837',
-    'name': 'Folder A',
-  };
-  const folderB = {
-    '_id': '5ace4c9ebfbcb25277a2e838',
-    'name': 'Folder B',
-  };
-  const folderA1 = {
-    "_id": "5ace4cd4bfbcb25277a2e83e",
-    "name": "Folder A.1",
-    "parent": "5ace4c99bfbcb25277a2e837",
-  };
-  const folderA2 = {
-    "_id": "5ace4cd8bfbcb25277a2e83f",
-    "name": "Folder A.2",
-    "parent": "5ace4c99bfbcb25277a2e837",
-  };
-
-  // Put one child before and one child after folderA to make sure the implementation is order agnostic
-  const tagList = [ folderA1, folderA, folderA2, folderB ];
-
-  const state = reducer(undefined, tags.init(tagList));
-
-  expect(state[folderA._id]).toEqual({
-    ...folderA,
-    children: [
-      folderA1._id,
-      folderA2._id,
-    ]
+    [tagA._id]: tagA,
   });
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { selectTag } from 'selectors/tagsSelector';
 import * as currentFolderID from 'actions/currentFolderID';
+import 'components/Folder.scss';
 
 const Folder = (props) => {
   const onClick = (e) => {
@@ -10,9 +11,11 @@ const Folder = (props) => {
   };
 
   return (
-    <div>
-      <a href="#" className="folder-link" onClick={onClick}>{props.tag.name}</a>
-    </div>
+    <a onClick={onClick}>
+      <div className="folder-link">
+        {props.tag.name}
+      </div>
+    </a>
   );
 };
 

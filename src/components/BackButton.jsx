@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { selectParentID } from 'selectors/tagsSelector';
 import { currentFolderIDSelector } from 'selectors/currentFolderIDSelector';
 import * as currentFolderID from 'actions/currentFolderID';
+import 'components/BackButton.scss';
 
 const BackButton = (props) => {
   if (props.currentFolderID === 'root') {
@@ -14,7 +15,7 @@ const BackButton = (props) => {
     props.updateCurrentFolder(props.parentID);
   }
   return (
-    <button onClick={onClick}>Back</button>
+    <button className="back-button" onClick={onClick}> {"<"} Back</button>
   );
 };
 
