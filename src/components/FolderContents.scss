@@ -1,10 +1,13 @@
 .folder-contents {
   margin: 15px;
-  border-top: 1px solid lightgray;
-  border-left: 1px solid lightgray;
-  border-right: 1px solid lightgray;
+  border: 1px solid lightgray;
+  border-radius: 4px;
 };
 
 .empty-folder {
   margin: 15px;
+};
+
+.folder-contents .content-element:not(:last-child) {
+  border-bottom: 1px solid lightgray;
 };

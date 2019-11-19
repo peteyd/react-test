@@ -7,21 +7,21 @@ import 'components/FolderContents.scss';
 
 const Folders = (props) => {
   return (
-    <div className="child-folders">{
+    <>{
       props.folderIDs.map((folderID) => {
         return <Folder folderID={folderID} key={folderID} />;
-      })}
-    </div>
+      })
+    }</>
   );
 };
 
 const Tags = (props) => {
   return (
-    <div className="child-tags">{
+    <>{
       props.tagIDs.map((tagID) => {
         return <Tag tagID={tagID} key={tagID} />;
-      })}
-    </div>
+      })
+    }</>
   );
 };
 

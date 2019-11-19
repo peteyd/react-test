@@ -1,11 +1,27 @@
 .folder-link {
   height: 30px;
   padding: 5px;
-  border-bottom: 1px solid lightgray;
-  font-size: 11pt;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+};
+
+.folder-icon {
+  width: 24px;
+  height: 24px;
+};
+
+.right-chevron {
+  width: 16px;
+  height: 16px;
+};
+
+.folder-name {
+  padding-left: 10px;
+  font-size: 11pt;
+  flex-grow: 1;
 };
 
 .folder-link:hover {
-  background-color: lightgray;
+  background-color: lightsteelblue;
 };

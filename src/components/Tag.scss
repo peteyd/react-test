@@ -1,14 +1,18 @@
 .tag-checkbox {
   height: 30px;
   padding: 5px;
-  border-bottom: 1px solid lightgray;
   font-size: 11pt;
+  display: flex;
+  align-items: center;
 
   input[type='checkbox'] {
     cursor: pointer;
+    height: 24px;
+    width: 24px;
   };
 
   label {
-    padding-left: 5px;
+    margin-top: -1px;
+    padding-left: 3px;
   }
 };

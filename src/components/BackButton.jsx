@@ -15,7 +15,10 @@ const BackButton = (props) => {
     props.updateCurrentFolder(props.parentID);
   }
   return (
-    <button className="back-button" onClick={onClick}> {"<"} Back</button>
+    <button className="back-button" onClick={onClick}>
+      <img className="left-triangle" src={process.env.PUBLIC_URL + "/left-triangle.png"} alt=""/>
+      Back
+    </button>
   );
 };
 

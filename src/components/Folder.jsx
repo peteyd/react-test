@@ -11,8 +11,10 @@ const Folder = (props) => {
   };
 
   return (
-    <div className="folder-link" onClick={onClick}>
-      {props.folder.name}
+    <div className="folder-link content-element" onClick={onClick}>
+      <img className="folder-icon" src={process.env.PUBLIC_URL + '/folder.png'} alt=""/>
+      <span className="folder-name">{props.folder.name}</span>
+      <img className="right-chevron" src={process.env.PUBLIC_URL + '/right-chevron.png'} alt=""/>
     </div>
   );
 };

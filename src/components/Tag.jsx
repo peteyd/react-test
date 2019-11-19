@@ -11,7 +11,7 @@ const Tag = (props) => {
   };
 
   return (
-    <div className="tag-checkbox">
+    <div className="tag-checkbox content-element">
       <input type="checkbox" name={props.tag._id} onChange={onChange} checked={props.isSelected}/>
       <label htmlFor={props.tag._id}>{props.tag.name}</label>
     </div>
