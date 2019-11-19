@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectTag } from 'selectors/tagsSelector';
+import { selectElement } from 'selectors/tagsSelector';
 import { isSelected } from 'selectors/selectedTagsSelector';
 import * as selectedTags from 'actions/selectedTags';
 import 'components/Tag.scss';
@@ -20,7 +20,7 @@ const Tag = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    tag: selectTag(state, ownProps.tagID),
+    tag: selectElement(state, ownProps.tagID),
     isSelected: isSelected(state, ownProps.tagID),
   };
 };

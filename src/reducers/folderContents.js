@@ -13,10 +13,10 @@ const folderContents = (state = {}, action) => {
         parent.childFolders = parent.childFolders || [];
 
         if (currentValue.isFolder) {
-          parent.childFolders.push(currentValue._id);
+          parent.childFolders.push({ _id: currentValue._id, name: currentValue.name });
         }
         else {
-          parent.childTags.push(currentValue._id);
+          parent.childTags.push({ _id: currentValue._id, name: currentValue.name });
         }
 
         return accumulator;

@@ -1,34 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectTag } from 'selectors/tagsSelector';
+import { selectElement } from 'selectors/tagsSelector';
 import * as currentFolderID from 'actions/currentFolderID';
 import 'components/Folder.scss';
 
 const Folder = (props) => {
   const onClick = (e) => {
     e.preventDefault();
-    props.updateCurrentFolder(props.tagID);
+    props.updateCurrentFolder(props.folderID);
   };
 
   return (
-    <a onClick={onClick}>
-      <div className="folder-link">
-        {props.tag.name}
-      </div>
-    </a>
+    <div className="folder-link" onClick={onClick}>
+      {props.folder.name}
+    </div>
   );
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    tag: selectTag(state, ownProps.tagID),
+    folder: selectElement(state, ownProps.folderID),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCurrentFolder: (tagID) => {
-      dispatch(currentFolderID.update(tagID));
+    updateCurrentFolder: (folderID) => {
+      dispatch(currentFolderID.update(folderID));
     },
   };
 };

@@ -29,8 +29,8 @@ it('should map top level tag and folder IDs as children of the root', () => {
 
   expect(state).toEqual({
     'root': {
-      childFolders: [ folderA._id ],
-      childTags: [ tagA._id ],
+      childFolders: [ { _id: folderA._id, name: folderA.name } ],
+      childTags: [ { _id: tagA._id, name: tagA.name } ],
     },
   });
 });
@@ -65,10 +65,10 @@ it('should map child tag and folder IDs as children of their parent ID', () => {
 
   expect(state[folderA._id]).toEqual({
     childFolders: [
-      folderA1._id,
+      { _id: folderA1._id, name: folderA1.name },
     ],
     childTags: [
-      tagA1._id,
+      { _id: tagA1._id, name: tagA1.name },
     ],
   });
 

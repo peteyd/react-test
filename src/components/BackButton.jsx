@@ -30,8 +30,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateCurrentFolder: (tagID) => {
-      dispatch(currentFolderID.update(tagID));
+    updateCurrentFolder: (folderID) => {
+      dispatch(currentFolderID.update(folderID));
     },
   };
 };

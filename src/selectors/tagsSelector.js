@@ -5,18 +5,12 @@ export const tagsSelector = createSelector(
   tags => tags,
 );
 
-export const selectTag = (state, tagID) => {
-  return tagsSelector(state)[tagID];
+export const selectElement = (state, tagID) => {
+  return tagsSelector(state)[tagID] || {};
 };
 
-export const selectIsFolder = (state, tagID) => {
-  const tag = selectTag(state, tagID);
+export const selectParentID = (state, childID) => {
+  const element = tagsSelector(state)[childID];
 
-  return tag && tag.isFolder;
-};
-
-export const selectParentID = (state, tagID) => {
-  const tag = selectTag(state, tagID);
-
-  return tag && (tag.parent || 'root');
+  return element && (element.parent || 'root');
 };
