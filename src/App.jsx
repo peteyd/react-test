@@ -251,6 +251,7 @@ const tags = [
     ],
   },
 ];
+
 function App() {
   return (
     <TagPicker selectedTags={selectedTags} tags={tags} />
