@@ -30,7 +30,7 @@ describe('Rendering the Tag component', () => {
 
     tagCheckbox.simulate('change');
 
-    expect(toggleSpy.calledOnce).toBe(true);
+    expect(toggleSpy.callCount).toEqual(1);
     expect(toggleSpy.firstCall.args).toEqual([tag._id]);
   });
 });
@@ -60,12 +60,12 @@ describe('Mapping dispatch and state to props', () => {
     });
 
     it('should call the selectElement selector correctly', () => {
-      expect(tagsSelector.selectElement.calledOnce).toBe(true);
+      expect(tagsSelector.selectElement.callCount).toEqual(1);
       expect(tagsSelector.selectElement.firstCall.args).toEqual(['fake store', '112358']);
     });
 
     it('should call the isSelected selector correctly', () => {
-      expect(selectedTagsSelector.isSelected.calledOnce).toBe(true);
+      expect(selectedTagsSelector.isSelected.callCount).toEqual(1);
       expect(selectedTagsSelector.isSelected.firstCall.args).toEqual(['fake store', '112358']);
     });
   });
@@ -76,7 +76,7 @@ describe('Mapping dispatch and state to props', () => {
 
       wrapper.find('Tag').props().toggleTag('112358');
 
-      expect(store.dispatch.calledOnce).toBe(true);
+      expect(store.dispatch.callCount).toEqual(1);
       expect(store.dispatch.firstCall.args).toEqual([selectedTags.toggle('112358')]);
     });
   });

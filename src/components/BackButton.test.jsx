@@ -27,7 +27,7 @@ describe('Rendering the BackButton component', () => {
 
     button.simulate('click');
 
-    expect(updateSpy.calledOnce).toBe(true);
+    expect(updateSpy.callCount).toEqual(1);
     expect(updateSpy.firstCall.args).toEqual(['parent_id']);
   });
 });
@@ -44,7 +44,7 @@ describe('Mapping dispatch props', () => {
 
     wrapper.find('BackButton').props().updateCurrentFolder('112358');
 
-    expect(store.dispatch.calledOnce).toBe(true);
+    expect(store.dispatch.callCount).toEqual(1);
     expect(store.dispatch.firstCall.args).toEqual([currentFolderID.update('112358')]);
   });
 });

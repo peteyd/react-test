@@ -25,7 +25,7 @@ const Tags = (props) => {
   );
 };
 
-export const CurrentFolder = (props) => {
+export const FolderContents = (props) => {
   const totalChildren = props.contents.childFolderIDs.length + props.contents.childTagIDs.length;
 
   if (totalChildren === 0) {
@@ -50,4 +50,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(CurrentFolder);
+export default connect(mapStateToProps)(FolderContents);

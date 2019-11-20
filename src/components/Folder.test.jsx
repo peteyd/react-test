@@ -31,7 +31,7 @@ describe('Rendering the Folder component', () => {
 
     folderLink.simulate('click');
 
-    expect(updateSpy.calledOnce).toBe(true);
+    expect(updateSpy.callCount).toEqual(1);
     expect(updateSpy.firstCall.args).toEqual([folder._id]);
   });
 });
@@ -50,7 +50,7 @@ describe('Mapping dispatch and state to props', () => {
     const wrapper = shallow(<FolderContainer store={store} folderID="112358" />);
 
     expect(wrapper.find('Folder').props().folder).toEqual('fake folder object');
-    expect(selectors.selectElement.calledOnce).toBe(true);
+    expect(selectors.selectElement.callCount).toEqual(1);
     expect(selectors.selectElement.firstCall.args).toEqual(['fake store', '112358']);
   });
 
@@ -59,7 +59,7 @@ describe('Mapping dispatch and state to props', () => {
 
     wrapper.find('Folder').props().updateCurrentFolder('112358');
 
-    expect(store.dispatch.calledOnce).toBe(true);
+    expect(store.dispatch.callCount).toEqual(1);
     expect(store.dispatch.firstCall.args).toEqual([currentFolderID.update('112358')]);
   });
 });

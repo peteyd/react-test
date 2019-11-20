@@ -9,7 +9,7 @@ export const CurrentFolder = (props) => {
   return (
     <div className="current-folder">
       <div className="header">
-        <div className="current-folder-name">{`{${props.currentFolder.name}}`}</div>
+        <div className="current-folder-name">{props.currentFolder.name}</div>
       </div>
       <div className="back-button-wrapper">
         <BackButton parentID={props.currentFolder.parent} />
