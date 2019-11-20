@@ -31,10 +31,12 @@ it('should index the list of tag objects by id', () => {
   const folderA = {
     _id: '5ace4c99bfbcb25277a2e837',
     name: 'Folder A',
+    parent: 'root',
     isFolder: true,
   };
   const tagA = {
     _id: '5ace4c9ebfbcb25277a2e838',
+    parent: 'root',
     name: 'Tag A',
   };
   const tagList = [folderA, tagA];
@@ -46,4 +48,26 @@ it('should index the list of tag objects by id', () => {
     [folderA._id]: folderA,
     [tagA._id]: tagA,
   });
+});
+
+it('should set parent to root if null or undefined parent', () => {
+  const tagA = {
+    _id: '5ace4c9ebfbcb25277a2e838',
+    name: 'Tag A',
+    parent: null,
+  };
+
+  const tagB = {
+    _id: '5ace4c99bfbcb25277a2e837',
+    name: 'Folder A',
+  };
+  const tagList = [tagA, tagB];
+
+  const state = reducer(undefined, tags.init(tagList));
+
+  expect(state[tagA._id].parent).toEqual('root');
+  expect(state[tagB._id].parent).toEqual('root');
+  // should not update the original tag
+  expect(tagA.parent).toBeNull();
+  expect(tagB.parent).toBeUndefined();
 });

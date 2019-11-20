@@ -1,12 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectParentID } from 'selectors/tagsSelector';
-import { currentFolderIDSelector } from 'selectors/currentFolderIDSelector';
 import * as currentFolderID from 'actions/currentFolderID';
 import 'components/BackButton.scss';
 
-const BackButton = (props) => {
-  if (props.currentFolderID === 'root') {
+export const BackButton = (props) => {
+  if (!props.parentID) {
     return null;
   }
 
@@ -22,15 +20,6 @@ const BackButton = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  const currentFolderID = currentFolderIDSelector(state);
-
-  return {
-    parentID: selectParentID(state, currentFolderID),
-    currentFolderID,
-  };
-};
-
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCurrentFolder: (folderID) => {
@@ -39,4 +28,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BackButton);
+export default connect(undefined, mapDispatchToProps)(BackButton);

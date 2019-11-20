@@ -6,7 +6,7 @@ import 'components/Folder.scss';
 
 export const Folder = (props) => {
   const onClick = () => {
-    props.updateCurrentFolder(props.folderID);
+    props.updateCurrentFolder(props.folder._id);
   };
 
   return (

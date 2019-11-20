@@ -8,7 +8,12 @@ const initTags = (state, action) => {
   };
 
   return action.tags.reduce((accumulator, currentValue) => {
-    accumulator[currentValue._id] = currentValue;
+    // copy the currentValue and set the parent to root if no parent
+    accumulator[currentValue._id] = {
+      ...currentValue,
+      parent: currentValue.parent || tags.root._id,
+    };
+
     return accumulator;
   }, tags);
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import sinon from 'sinon';
 import FolderContainer, { Folder } from 'components/Folder';
 import configureStore from 'redux-mock-store';
@@ -11,10 +11,9 @@ describe('Rendering the Folder component', () => {
     _id: "112358",
     name: 'Folder 1',
   };
-  let updateSpy = sinon.spy();
 
   it('should render the folder link with the given name', () => {
-    const wrapper = shallow(<Folder folderID={folder._id} folder={folder} />);
+    const wrapper = shallow(<Folder folder={folder} />);
     const folderLink = wrapper.find('.folder-link');
 
     expect(folderLink.length).toEqual(1);
@@ -22,8 +21,10 @@ describe('Rendering the Folder component', () => {
   });
 
   it('should call the update callback with the folder id when clicked', () => {
+    let updateSpy = sinon.spy();
+
     const wrapper = shallow(
-      <Folder folderID={folder._id} folder={folder} updateCurrentFolder={updateSpy} />
+      <Folder folder={folder} updateCurrentFolder={updateSpy} />
     );
 
     const folderLink = wrapper.find('.folder-link');

@@ -5,7 +5,7 @@ import { isSelected } from 'selectors/selectedTagsSelector';
 import * as selectedTags from 'actions/selectedTags';
 import 'components/Tag.scss';
 
-const Tag = (props) => {
+export const Tag = (props) => {
   const onChange = () => {
     props.toggleTag(props.tag._id);
   };
