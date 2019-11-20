@@ -10,26 +10,28 @@ export const Folder = (props) => {
   };
 
   return (
-    <div className="folder-link content-element" onClick={onClick}>
-      <img className="folder-icon" src={process.env.PUBLIC_URL + '/folder.png'} alt=""/>
+    <div
+      className="folder-link content-element"
+      onClick={onClick}
+      onKeyPress={onClick}
+      role="button"
+      tabIndex={0}
+    >
+      <img className="folder-icon" src={`${process.env.PUBLIC_URL}/folder.png`} alt="" />
       <span className="folder-name">{props.folder.name}</span>
-      <img className="right-chevron" src={process.env.PUBLIC_URL + '/right-chevron.png'} alt=""/>
+      <img className="right-chevron" src={`${process.env.PUBLIC_URL}/right-chevron.png`} alt="" />
     </div>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    folder: selectElement(state, ownProps.folderID),
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  folder: selectElement(state, ownProps.folderID),
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateCurrentFolder: (folderID) => {
-      dispatch(currentFolderID.update(folderID));
-    },
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  updateCurrentFolder: (folderID) => {
+    dispatch(currentFolderID.update(folderID));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Folder);

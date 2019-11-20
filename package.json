@@ -18,34 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint ."
-  },
-  "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "airbnb/hooks"
-    ],
-    "rules": {
-      "import/prefer-default-export": "off",
-      "no-underscore-dangle": "off",
-      "import/no-extraneous-dependencies": ["error", {
-        "devDependencies": [ "**/*.test.js", "**/*.test.jsx", "**/setupTests.js" ]
-        }
-      ]
-    },
-    "env": {
-      "jest": true,
-      "browser": true
-    },
-    "settings": {
-      "import/resolver": {
-        "node": {
-          "paths": [
-            "src"
-          ]
-        }
-      }
-    }
+    "lint": "eslint . --ext js,jsx"
   },
   "browserslist": {
     "production": [

@@ -5,24 +5,20 @@ import BackButton from 'components/BackButton';
 import FolderContents from 'components/FolderContents';
 import 'components/CurrentFolder.scss';
 
-export const CurrentFolder = (props) => {
-  return (
-    <div className="current-folder">
-      <div className="header">
-        <div className="current-folder-name">{props.currentFolder.name}</div>
-      </div>
-      <div className="back-button-wrapper">
-        <BackButton parentID={props.currentFolder.parent} />
-      </div>
-      <FolderContents />
+export const CurrentFolder = (props) => (
+  <div className="current-folder">
+    <div className="header">
+      <div className="current-folder-name">{props.currentFolder.name}</div>
     </div>
-  );
-};
+    <div className="back-button-wrapper">
+      <BackButton parentID={props.currentFolder.parent} />
+    </div>
+    <FolderContents />
+  </div>
+);
 
-const mapStateToProps = (state) => {
-  return {
-    currentFolder: currentFolderSelector(state),
-  };
-};
+const mapStateToProps = (state) => ({
+  currentFolder: currentFolderSelector(state),
+});
 
 export default connect(mapStateToProps)(CurrentFolder);

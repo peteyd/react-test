@@ -20,7 +20,7 @@ describe('Rendering the BackButton component', () => {
   });
 
   it('should call the update callback with the parent id when clicked', () => {
-    let updateSpy = sinon.spy();
+    const updateSpy = sinon.spy();
     const wrapper = shallow(<BackButton parentID="parent_id" updateCurrentFolder={updateSpy} />);
 
     const button = wrapper.find('button');

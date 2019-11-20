@@ -7,8 +7,8 @@ import * as selectors from 'selectors/tagsSelector';
 import * as currentFolderID from 'actions/currentFolderID';
 
 describe('Rendering the Folder component', () => {
-  let folder = {
-    _id: "112358",
+  const folder = {
+    _id: '112358',
     name: 'Folder 1',
   };
 
@@ -21,10 +21,10 @@ describe('Rendering the Folder component', () => {
   });
 
   it('should call the update callback with the folder id when clicked', () => {
-    let updateSpy = sinon.spy();
+    const updateSpy = sinon.spy();
 
     const wrapper = shallow(
-      <Folder folder={folder} updateCurrentFolder={updateSpy} />
+      <Folder folder={folder} updateCurrentFolder={updateSpy} />,
     );
 
     const folderLink = wrapper.find('.folder-link');

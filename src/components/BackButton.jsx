@@ -13,19 +13,17 @@ export const BackButton = (props) => {
   };
 
   return (
-    <button className="back-button" onClick={onClick}>
-      <img className="left-triangle" src={process.env.PUBLIC_URL + "/left-triangle.png"} alt=""/>
+    <button className="back-button" onClick={onClick} type="button">
+      <img className="left-triangle" src={`${process.env.PUBLIC_URL}/left-triangle.png`} alt="" />
       Back
     </button>
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateCurrentFolder: (folderID) => {
-      dispatch(currentFolderID.update(folderID));
-    },
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  updateCurrentFolder: (folderID) => {
+    dispatch(currentFolderID.update(folderID));
+  },
+});
 
 export default connect(undefined, mapDispatchToProps)(BackButton);

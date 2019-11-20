@@ -9,14 +9,10 @@ export const TagPicker = (props) => {
 
   useLayoutEffect(() => {
     dispatch(selectedTagsActions.init(selectedTags));
-  }, [selectedTags, dispatch]);
-
-  useLayoutEffect(() => {
     dispatch(tagsActions.init(tags));
-  }, [tags, dispatch]);
+  });
 
-  return <CurrentFolder />
+  return <CurrentFolder />;
 };
 
 export default connect()(TagPicker);
-

@@ -8,8 +8,8 @@ import * as selectedTagsSelector from 'selectors/selectedTagsSelector';
 import * as selectedTags from 'actions/selectedTags';
 
 describe('Rendering the Tag component', () => {
-  let tag = {
-    _id: "112358",
+  const tag = {
+    _id: '112358',
     name: 'Tag 1',
   };
 
@@ -23,7 +23,7 @@ describe('Rendering the Tag component', () => {
   });
 
   it('should call the toggle callback with the tag id when clicked', () => {
-    let toggleSpy = sinon.spy();
+    const toggleSpy = sinon.spy();
 
     const wrapper = shallow(<Tag tag={tag} toggleTag={toggleSpy} />);
     const tagCheckbox = wrapper.find('input[type="checkbox"]');

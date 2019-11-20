@@ -23,7 +23,7 @@ describe('Rendering the CurrentFolder component', () => {
 
     const wrapper = shallow(<CurrentFolder currentFolder={folder} />);
 
-    expect(wrapper.find('.current-folder-name').text()).toEqual("Folder Name");
+    expect(wrapper.find('.current-folder-name').text()).toEqual('Folder Name');
     expect(wrapper.find('Connect(BackButton)').props().parentID).toEqual('parent_id');
   });
 });

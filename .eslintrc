@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "no-underscore-dangle": "off",
+    "import/no-named-as-default": "off",
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [ "**/*.test.js", "**/*.test.jsx", "**/setupTests.js" ]
+      }
+    ],
+    "react/prop-types": "off",
+    "react/destructuring-assignment": "off"
+  },
+  "env": {
+    "jest": true,
+    "browser": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "src"
+        ]
+      }
+    }
+  }
+}

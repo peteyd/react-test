@@ -12,25 +12,21 @@ export const Tag = (props) => {
 
   return (
     <div className="tag-checkbox content-element">
-      <input type="checkbox" name={props.tag._id} onChange={onChange} checked={props.isSelected}/>
+      <input type="checkbox" name={props.tag._id} onChange={onChange} checked={props.isSelected} />
       <label htmlFor={props.tag._id}>{props.tag.name}</label>
     </div>
   );
 };
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    tag: selectElement(state, ownProps.tagID),
-    isSelected: isSelected(state, ownProps.tagID),
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  tag: selectElement(state, ownProps.tagID),
+  isSelected: isSelected(state, ownProps.tagID),
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleTag: (tagID) => {
-      dispatch(selectedTags.toggle(tagID));
-    },
-  };
-};
+const mapDispatchToProps = (dispatch) => ({
+  toggleTag: (tagID) => {
+    dispatch(selectedTags.toggle(tagID));
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tag);
