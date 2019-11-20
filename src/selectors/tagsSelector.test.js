@@ -15,7 +15,7 @@ describe('tagsSelector', () => {
 describe('selectElement', () => {
   const state = {
     tags: {
-      '112358': 'fake tag object',
+      112358: 'fake tag object',
     },
   };
 
@@ -35,10 +35,10 @@ describe('selectElement', () => {
 describe('selectParentID', () => {
   const state = {
     tags: {
-      '1111': {
+      1111: {
         parent: '1111_PARENT',
       },
-      'NO_PARENT': {},
+      NO_PARENT: {},
     },
   };
 

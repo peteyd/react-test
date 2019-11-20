@@ -4,7 +4,7 @@ it('should return the current folder from the current folder id', () => {
   const state = {
     currentFolderID: '112358',
     tags: {
-      '112358': 'current folder',
+      112358: 'current folder',
     },
   };
 
@@ -16,7 +16,7 @@ it('should return the current folder from the current folder id', () => {
 it('should return empty object if the current folder id is not found', () => {
   const state = {
     currentFolderID: 'NOT_FOUND',
-    tags: {}
+    tags: {},
   };
 
   const selected = currentFolderSelector(state);

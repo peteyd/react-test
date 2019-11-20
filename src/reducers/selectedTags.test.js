@@ -18,16 +18,16 @@ it('should initialize the selected tag object with an array of tag IDs', () => {
   const state = reducer(undefined, selectedTags.init(tagIDs));
 
   expect(state).toEqual({
-    '111': true,
-    '222': true,
-    '333': true,
+    111: true,
+    222: true,
+    333: true,
   });
 });
 
 it('should toggle an unselected tag to be selected', () => {
   const original = {
-    '111': true,
-    '333': true,
+    111: true,
+    333: true,
   };
 
   const startingState = { ...original };
@@ -38,17 +38,17 @@ it('should toggle an unselected tag to be selected', () => {
 
   // Expect the returned state to be updated
   expect(state).toEqual({
-    '111': true,
-    '222': true,
-    '333': true,
+    111: true,
+    222: true,
+    333: true,
   });
 });
 
 it('should toggle a selected tag to be unselected', () => {
   const original = {
-    '111': true,
-    '222': true,
-    '333': true,
+    111: true,
+    222: true,
+    333: true,
   };
 
   const startingState = { ...original };
@@ -59,7 +59,7 @@ it('should toggle a selected tag to be unselected', () => {
 
   // Expect the returned state to be updated
   expect(state).toEqual({
-    '111': true,
-    '333': true,
+    111: true,
+    333: true,
   });
 });

@@ -29,15 +29,15 @@ it('should add a root folder', () => {
 
 it('should index the list of tag objects by id', () => {
   const folderA = {
-    '_id': '5ace4c99bfbcb25277a2e837',
-    'name': 'Folder A',
-    'isFolder': true,
+    _id: '5ace4c99bfbcb25277a2e837',
+    name: 'Folder A',
+    isFolder: true,
   };
   const tagA = {
-    '_id': '5ace4c9ebfbcb25277a2e838',
-    'name': 'Tag A',
+    _id: '5ace4c9ebfbcb25277a2e838',
+    name: 'Tag A',
   };
-  const tagList = [ folderA, tagA ];
+  const tagList = [folderA, tagA];
 
   const state = reducer(undefined, tags.init(tagList));
 

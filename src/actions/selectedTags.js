@@ -1,13 +1,9 @@
-export const init = (tagIDs) => {
-  return {
-    type: 'INIT_SELECTED_TAGS',
-    tagIDs,
-  };
-};
+export const init = (tagIDs) => ({
+  type: 'INIT_SELECTED_TAGS',
+  tagIDs,
+});
 
-export const toggle = (tagID) => {
-  return {
-    type: 'TOGGLE_TAG',
-    tagID,
-  };
-};
+export const toggle = (tagID) => ({
+  type: 'TOGGLE_TAG',
+  tagID,
+});

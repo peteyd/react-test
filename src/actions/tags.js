@@ -1,6 +1,4 @@
-export const init = (tags) => {
-  return {
-    type: 'INIT_TAGS',
-    tags,
-  };
-};
+export const init = (tags) => ({
+  type: 'INIT_TAGS',
+  tags,
+});

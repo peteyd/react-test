@@ -1,13 +1,11 @@
 import { createSelector } from 'reselect';
 
 export const tagsSelector = createSelector(
-  state => state.tags,
-  tags => tags,
+  (state) => state.tags,
+  (tags) => tags,
 );
 
-export const selectElement = (state, tagID) => {
-  return tagsSelector(state)[tagID] || {};
-};
+export const selectElement = (state, tagID) => tagsSelector(state)[tagID] || {};
 
 export const selectParentID = (state, childID) => {
   const element = tagsSelector(state)[childID];

@@ -15,8 +15,8 @@ describe('selectedTagsSelector', () => {
 describe('isSelected', () => {
   const state = {
     selectedTags: {
-      '112358': true,
-      'NOT_SELECTED': false,
+      112358: true,
+      NOT_SELECTED: false,
     },
   };
 

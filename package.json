@@ -17,10 +17,26 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "eslint ."
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": ["airbnb", "airbnb/hooks"],
+    "rules": {
+      "import/prefer-default-export": "off",
+      "no-underscore-dangle": "off"
+    },
+    "env": {
+      "jest": true,
+      "browser": true
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
+    }
   },
   "browserslist": {
     "production": [
@@ -37,6 +53,12 @@
   "devDependencies": {
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
     "redux-mock-store": "^1.5.3"
   }
 }

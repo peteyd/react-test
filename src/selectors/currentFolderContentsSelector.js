@@ -20,8 +20,8 @@ export const currentFolderContentsSelector = createSelector(
     const sortedChildTags = [...contents.childTags].sort(byName);
 
     return {
-      childFolderIDs: sortedChildFolders.map(folder => folder._id),
-      childTagIDs: sortedChildTags.map(tag => tag._id),
+      childFolderIDs: sortedChildFolders.map((folder) => folder._id),
+      childTagIDs: sortedChildTags.map((tag) => tag._id),
     };
   },
 );
