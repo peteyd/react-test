@@ -17,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "coverage": "react-scripts test --watchAll=false --coverage --collectCoverageFrom=!src/index.js",
     "eject": "react-scripts eject",
     "lint": "eslint . --ext js,jsx"
   },
