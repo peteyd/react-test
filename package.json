@@ -21,10 +21,17 @@
     "lint": "eslint ."
   },
   "eslintConfig": {
-    "extends": ["airbnb", "airbnb/hooks"],
+    "extends": [
+      "airbnb",
+      "airbnb/hooks"
+    ],
     "rules": {
       "import/prefer-default-export": "off",
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "import/no-extraneous-dependencies": ["error", {
+        "devDependencies": [ "**/*.test.js", "**/*.test.jsx", "**/setupTests.js" ]
+        }
+      ]
     },
     "env": {
       "jest": true,
@@ -33,7 +40,9 @@
     "settings": {
       "import/resolver": {
         "node": {
-          "paths": ["src"]
+          "paths": [
+            "src"
+          ]
         }
       }
     }
@@ -59,6 +68,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "redux-mock-store": "^1.5.3"
+    "redux-mock-store": "^1.5.3",
+    "sinon": "^7.5.0"
   }
 }

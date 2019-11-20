@@ -4,7 +4,7 @@ import { selectElement } from 'selectors/tagsSelector';
 import * as currentFolderID from 'actions/currentFolderID';
 import 'components/Folder.scss';
 
-const Folder = (props) => {
+export const Folder = (props) => {
   const onClick = () => {
     props.updateCurrentFolder(props.folderID);
   };
