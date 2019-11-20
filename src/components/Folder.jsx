@@ -5,8 +5,7 @@ import * as currentFolderID from 'actions/currentFolderID';
 import 'components/Folder.scss';
 
 const Folder = (props) => {
-  const onClick = (e) => {
-    e.preventDefault();
+  const onClick = () => {
     props.updateCurrentFolder(props.folderID);
   };
 

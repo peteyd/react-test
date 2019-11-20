@@ -10,10 +10,10 @@ const BackButton = (props) => {
     return null;
   }
 
-  const onClick = (e) => {
-    e.preventDefault();
+  const onClick = () => {
     props.updateCurrentFolder(props.parentID);
-  }
+  };
+
   return (
     <button className="back-button" onClick={onClick}>
       <img className="left-triangle" src={process.env.PUBLIC_URL + "/left-triangle.png"} alt=""/>

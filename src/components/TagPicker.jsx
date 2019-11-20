@@ -18,5 +18,5 @@ export const TagPicker = (props) => {
   return <CurrentFolder />
 };
 
-export default connect(() => { return {} })(TagPicker);
+export default connect()(TagPicker);
 
