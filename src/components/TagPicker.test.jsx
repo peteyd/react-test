@@ -28,7 +28,7 @@ describe('Initializing the redux store', () => {
 
   it('should call useLayoutEffect to intialize the store on mount', () => {
     expect(react.useLayoutEffect.callCount).toEqual(1);
-    // empty dependencies list means on mount
+    // no dependencies list means perform the callback only after mount
     expect(react.useLayoutEffect.firstCall.args.length).toEqual(1);
   });
 

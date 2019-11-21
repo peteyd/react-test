@@ -1,8 +1,9 @@
 import { INIT_TAGS } from 'actions/types';
 import { ROOT_FOLDER_ID } from 'constants/ids';
 
-const initTags = (state, action) => {
-  const tags = {
+const initTags = (action) => {
+  // create a root folder for the top level folders/tags to be under
+  const initialTags = {
     [ROOT_FOLDER_ID]: {
       _id: ROOT_FOLDER_ID,
       name: 'Root Folder',
@@ -10,21 +11,23 @@ const initTags = (state, action) => {
     },
   };
 
-  return action.tags.reduce((accumulator, currentValue) => {
+  action.tags.reduce((accumulator, currentValue) => {
     // copy the currentValue and set the parent to root if no parent
     accumulator[currentValue._id] = {
       ...currentValue,
-      parent: currentValue.parent || tags.root._id,
+      parent: currentValue.parent || initialTags.root._id,
     };
 
     return accumulator;
-  }, tags);
+  }, initialTags);
+
+  return initialTags;
 };
 
 const tags = (state = {}, action) => {
   switch (action.type) {
     case INIT_TAGS:
-      return initTags(state, action);
+      return initTags(action);
 
     default:
       return state;

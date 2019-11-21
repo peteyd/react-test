@@ -1,6 +1,6 @@
-/* eslint-disable no-param-reassign */
 import { clickable, changeable } from 'integration/decorators';
 
+/* eslint-disable no-param-reassign */
 export const selectableApp = (app) => {
   app.currentFolder = () => app.find('CurrentFolder');
 
@@ -12,6 +12,7 @@ export const selectableApp = (app) => {
 
   return app;
 };
+/* eslint-enable no-param-reassign */
 
 export const folders = {
   in: (folderWrapper) => folderWrapper.find('Folder'),

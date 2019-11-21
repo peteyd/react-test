@@ -73,7 +73,7 @@ describe('Folder navigation', () => {
     expect(app.currentFolderName()).toEqual('Root Folder');
   });
 
-  it('should preserve the tag selection when navigation away and back', () => {
+  it('should preserve the tag selection when navigating away and back', () => {
     // first tag should start unchecked
     expect(tags.checkboxFor(firstTag()).props().checked).toBe(false);
 
