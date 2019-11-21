@@ -8,6 +8,8 @@ import TagPicker from 'components/TagPicker';
 
 const store = createStore(rootReducer);
 
+export const app = null;
+
 export const initIntegration = ({ tags, selectedTags }) => mount(
   <Provider store={store}>
     <TagPicker tags={tags} selectedTags={selectedTags} />

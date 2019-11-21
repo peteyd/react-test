@@ -1,17 +1,26 @@
-export const currentFolderFor = (app) => app.find('CurrentFolder');
+/* eslint-disable no-param-reassign */
+import { clickable, changeable } from 'integration/decorators';
 
-export const headerFor = (currentFolder) => currentFolder.find('.header');
+export const selectableApp = (app) => {
+  app.currentFolder = () => app.find('CurrentFolder');
 
-export const backButtonFor = (currentFolder) => currentFolder.find('BackButton .back-button');
+  app.currentFolderContents = () => app.find('FolderContents');
+
+  app.currentFolderName = () => app.find('.current-folder-name').text();
+
+  app.backButton = () => clickable(app.find('BackButton .back-button'));
+
+  return app;
+};
 
 export const folders = {
-  in: (folderContainer) => folderContainer.find('Folder'),
-  linkTo: (folderElement) => folderElement.find('.folder-link'),
+  in: (folderWrapper) => folderWrapper.find('Folder'),
+  linkTo: (folderElement) => clickable(folderElement.find('.folder-link')),
   nameOf: (folderElement) => folderElement.find('.folder-name').text(),
 };
 
 export const tags = {
   in: (folderContainer) => folderContainer.find('Tag'),
-  checkboxFor: (tagElement) => tagElement.find('input'),
+  checkboxFor: (tagElement) => changeable(tagElement.find('input')),
   nameOf: (tagElement) => tagElement.find('label').text(),
 };

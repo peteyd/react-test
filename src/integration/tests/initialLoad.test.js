@@ -1,8 +1,6 @@
 import { initIntegration } from 'integration/index';
 import {
-  currentFolderFor,
-  headerFor,
-  backButtonFor,
+  selectableApp,
   folders,
   tags,
 } from 'integration/selectors';
@@ -43,23 +41,21 @@ const initialTags = [
   },
 ];
 
-const app = initIntegration({
+const app = selectableApp(initIntegration({
   tags: initialTags,
   selectedTags: initialSelectedTags,
-});
-
-const currentFolder = currentFolderFor(app);
+}));
 
 it('shows the root folder name in the header', () => {
-  expect(headerFor(currentFolder).text()).toEqual('Root Folder');
+  expect(app.currentFolderName()).toEqual('Root Folder');
 });
 
 it('does not show the back button', () => {
-  expect(backButtonFor(currentFolder).length).toEqual(0);
+  expect(app.backButton().length).toEqual(0);
 });
 
 it('shows the correct folders within the current folder', () => {
-  const displayedFolders = folders.in(currentFolder);
+  const displayedFolders = folders.in(app.currentFolder());
 
   expect(displayedFolders.length).toEqual(2);
   expect(folders.nameOf(displayedFolders.first())).toEqual('Folder A');
@@ -67,7 +63,7 @@ it('shows the correct folders within the current folder', () => {
 });
 
 it('shows the correct tags within the current folder in the correct order', () => {
-  const displayedTags = tags.in(currentFolder);
+  const displayedTags = tags.in(app.currentFolder());
 
   expect(displayedTags.length).toEqual(2);
   expect(tags.nameOf(displayedTags.first())).toEqual('Tag 1');
@@ -75,7 +71,7 @@ it('shows the correct tags within the current folder in the correct order', () =
 });
 
 it('shows the initially selected tags as selected', () => {
-  const displayedTags = tags.in(currentFolder);
+  const displayedTags = tags.in(app.currentFolder());
 
   expect(tags.checkboxFor(displayedTags.first()).props().checked).toBe(true);
   expect(tags.checkboxFor(displayedTags.last()).props().checked).toBe(false);
