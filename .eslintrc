@@ -8,7 +8,7 @@
     "no-underscore-dangle": "off",
     "import/no-named-as-default": "off",
     "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": [ "**/*.test.js", "**/*.test.jsx", "**/setupTests.js" ]
+      "devDependencies": [ "**/*.test.js", "**/*.test.jsx", "**/integration/**", "**/setupTests.js" ]
       }
     ],
     "react/prop-types": "off",

@@ -39,7 +39,6 @@ describe('Mapping dispatch and state to props', () => {
   const store = configureStore()('fake store');
 
   beforeEach(() => {
-    store.dispatch = sinon.spy();
     tagsSelector.selectElement = sinon.stub();
     selectedTagsSelector.isSelected = sinon.stub();
   });
@@ -76,8 +75,7 @@ describe('Mapping dispatch and state to props', () => {
 
       wrapper.find('Tag').props().toggleTag('112358');
 
-      expect(store.dispatch.callCount).toEqual(1);
-      expect(store.dispatch.firstCall.args).toEqual([selectedTags.toggle('112358')]);
+      expect(store.getActions()).toEqual([selectedTags.toggle('112358')]);
     });
   });
 });

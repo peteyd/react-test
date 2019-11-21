@@ -40,7 +40,6 @@ describe('Mapping dispatch and state to props', () => {
   const store = configureStore()('fake store');
 
   beforeEach(() => {
-    store.dispatch = sinon.spy();
     selectors.selectElement = sinon.stub();
   });
 
@@ -59,7 +58,6 @@ describe('Mapping dispatch and state to props', () => {
 
     wrapper.find('Folder').props().updateCurrentFolder('112358');
 
-    expect(store.dispatch.callCount).toEqual(1);
-    expect(store.dispatch.firstCall.args).toEqual([currentFolderID.update('112358')]);
+    expect(store.getActions()).toEqual([currentFolderID.update('112358')]);
   });
 });

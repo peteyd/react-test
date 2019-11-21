@@ -17,8 +17,6 @@ describe('Initializing the redux store', () => {
       callback();
     });
 
-    store.dispatch = sinon.spy();
-
     shallow(
       <TagPickerContainer
         store={store}
@@ -30,13 +28,14 @@ describe('Initializing the redux store', () => {
 
   it('should call useLayoutEffect to intialize the store on mount', () => {
     expect(react.useLayoutEffect.callCount).toEqual(1);
-    // empty dependencies list means on mount
+    // no dependencies list means perform the callback only after mount
     expect(react.useLayoutEffect.firstCall.args.length).toEqual(1);
   });
 
   it('should dispatch both init actions', () => {
-    expect(store.dispatch.callCount).toEqual(2);
-    expect(store.dispatch.firstCall.args).toEqual([selectedTagsActions.init('fake selected tags')]);
-    expect(store.dispatch.secondCall.args).toEqual([tagsActions.init('fake tags')]);
+    expect(store.getActions()).toEqual([
+      selectedTagsActions.init('fake selected tags'),
+      tagsActions.init('fake tags'),
+    ]);
   });
 });

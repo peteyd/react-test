@@ -1,6 +1,8 @@
 import { INIT_TAGS } from 'actions/types';
 import { ROOT_FOLDER_ID } from 'constants/ids';
 
+// build a mapping of parent IDs to their children's IDs
+// include the child ID and the child name (for sorting later)
 const initTags = (action) => {
   const initialState = action.tags.reduce((accumulator, currentValue) => {
     // default the parentID to root so we can distinguish between the actual root

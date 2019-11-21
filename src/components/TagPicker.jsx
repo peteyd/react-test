@@ -7,6 +7,7 @@ import CurrentFolder from 'components/CurrentFolder';
 export const TagPicker = (props) => {
   const { selectedTags, tags, dispatch } = props;
 
+  // useLayoutEffect is synchronous whereas useEffect is not
   useLayoutEffect(() => {
     dispatch(selectedTagsActions.init(selectedTags));
     dispatch(tagsActions.init(tags));

@@ -16,7 +16,7 @@ it('should return the given initial state when action not recognized', () => {
 
 const root = {
   _id: ROOT_FOLDER_ID,
-  name: 'Root Level',
+  name: 'Root Folder',
   isFolder: true,
 };
 
