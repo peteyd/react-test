@@ -17,8 +17,6 @@ describe('Initializing the redux store', () => {
       callback();
     });
 
-    store.dispatch = sinon.spy();
-
     shallow(
       <TagPickerContainer
         store={store}
@@ -35,8 +33,9 @@ describe('Initializing the redux store', () => {
   });
 
   it('should dispatch both init actions', () => {
-    expect(store.dispatch.callCount).toEqual(2);
-    expect(store.dispatch.firstCall.args).toEqual([selectedTagsActions.init('fake selected tags')]);
-    expect(store.dispatch.secondCall.args).toEqual([tagsActions.init('fake tags')]);
+    expect(store.getActions()).toEqual([
+      selectedTagsActions.init('fake selected tags'),
+      tagsActions.init('fake tags'),
+    ]);
   });
 });
