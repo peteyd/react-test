@@ -5,7 +5,7 @@ const initTags = (state, action) => {
   const tags = {
     [ROOT_FOLDER_ID]: {
       _id: ROOT_FOLDER_ID,
-      name: 'Root Level',
+      name: 'Root Folder',
       isFolder: true,
     },
   };
