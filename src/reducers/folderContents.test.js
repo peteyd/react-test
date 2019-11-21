@@ -1,5 +1,6 @@
 import reducer from 'reducers/folderContents';
 import * as tags from 'actions/tags';
+import { ROOT_FOLDER_ID } from 'constants/ids';
 
 it('should return default state when action not recognized', () => {
   const state = reducer(undefined, { type: 'NOT_RECOGNIZED' });
@@ -28,7 +29,7 @@ it('should map top level tag and folder IDs as children of the root', () => {
   const state = reducer(undefined, tags.init(tagList));
 
   expect(state).toEqual({
-    root: {
+    [ROOT_FOLDER_ID]: {
       childFolders: [{ _id: folderA._id, name: folderA.name }],
       childTags: [{ _id: tagA._id, name: tagA.name }],
     },

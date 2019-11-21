@@ -1,7 +1,10 @@
+import { INIT_TAGS } from 'actions/types';
+import { ROOT_FOLDER_ID } from 'constants/ids';
+
 const initTags = (state, action) => {
   const tags = {
-    root: {
-      _id: 'root',
+    [ROOT_FOLDER_ID]: {
+      _id: ROOT_FOLDER_ID,
       name: 'Root Level',
       isFolder: true,
     },
@@ -20,7 +23,7 @@ const initTags = (state, action) => {
 
 const tags = (state = {}, action) => {
   switch (action.type) {
-    case 'INIT_TAGS':
+    case INIT_TAGS:
       return initTags(state, action);
 
     default:

@@ -1,6 +1,11 @@
+import { INIT_TAGS } from 'actions/types';
+import { ROOT_FOLDER_ID } from 'constants/ids';
+
 const initTags = (action) => {
   const initialState = action.tags.reduce((accumulator, currentValue) => {
-    const parentID = currentValue.parent || 'root';
+    // default the parentID to root so we can distinguish between the actual root
+    // and the defined tags/folders that have no parent
+    const parentID = currentValue.parent || ROOT_FOLDER_ID;
     let parent = accumulator[parentID];
 
     if (!parent) {
@@ -11,11 +16,13 @@ const initTags = (action) => {
     parent.childTags = parent.childTags || [];
     parent.childFolders = parent.childFolders || [];
 
+    // include the name so we can sort by name later
     const childInfo = {
       _id: currentValue._id,
       name: currentValue.name,
     };
 
+    // assign the current value to either the parent's folders or tags
     if (currentValue.isFolder) {
       parent.childFolders.push(childInfo);
     } else {
@@ -30,7 +37,7 @@ const initTags = (action) => {
 
 const folderContents = (state = {}, action) => {
   switch (action.type) {
-    case 'INIT_TAGS':
+    case INIT_TAGS:
       return initTags(action);
 
     default:

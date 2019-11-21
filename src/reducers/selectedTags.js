@@ -1,3 +1,5 @@
+import { INIT_SELECTED_TAGS, TOGGLE_TAG } from 'actions/types';
+
 const initSelectedTags = (action) => {
   const initialSelectedTags = action.tagIDs.reduce((accumulator, currentValue) => {
     accumulator[currentValue] = true;
@@ -21,10 +23,10 @@ const toggleTag = (state, action) => {
 
 const selectedTags = (state = {}, action) => {
   switch (action.type) {
-    case 'INIT_SELECTED_TAGS':
+    case INIT_SELECTED_TAGS:
       return initSelectedTags(action);
 
-    case 'TOGGLE_TAG':
+    case TOGGLE_TAG:
       return toggleTag(state, action);
 
     default:
